@@ -23,9 +23,17 @@
     @yield('contenido')
   </div>
   <script src="{{ asset('materialize/js/materialize.js')}}" ></script>
-  <script>document.addEventListener('DOMContentLoaded', function() {
+  
+  <script>
+    M.AutoInit();
+    document.addEventListener('DOMContentLoaded', function() {
+    //codigo inicializacion de los tabs
+    let tabs = document.querySelector(".tabs")
+    var instance = M.Tabs.init(tabs);
+    //codigo inicializacion de los selects
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems, []);
+
   });
   </script>
 </body>

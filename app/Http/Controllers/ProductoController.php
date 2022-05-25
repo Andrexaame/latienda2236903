@@ -18,10 +18,10 @@ class ProductoController extends Controller
     public function index()
     {
         //seleccionar los productos en un arreglo
-        $productos = Productos::all();
+        $productos = Producto::all();
         //mostrar la vista del catalogo, llevandole los productos
         return view('productos.index')
-        ->whit('productos', $productos);
+        ->with('productos', $productos);
     }
 
     /**
