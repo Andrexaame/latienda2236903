@@ -7,6 +7,14 @@
         </h1>
     </div>
 
+    @if(session('mensajito'))
+    <div class="row">
+        <p>{{session('mensajito')}} 
+            <a href="   {{route('cart.index')  }}">Ir al carrito</a>
+        </p>
+    </div>
+    @endif
+
     @foreach($productos as $producto)
    
     <div class="card">
@@ -24,9 +32,10 @@
             <div id="{{ $producto->id }}">{{ $producto->nombre}}</div>
             <div id="{{ $producto->id }}1">{{ $producto->descripcion }}</div>
             <div id="{{ $producto->id }}2">{{ $producto->precio }}</div>
+            
         </div>
         <div class="card-action">
-            <a href="#">Ver todo</a>
+            <a href="{{ route('productos.show' , $producto->id) }}">Detalles</a>
         </div>
     </div>
     @endforeach
