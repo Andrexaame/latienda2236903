@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Producto;
 
 class CartController extends Controller
 {
@@ -13,11 +14,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        if(!session('cart')){
-            echo "no hay items en el carrito";
-        }else{
+        
             return view('cart.index');
-        }
         
     }
 
@@ -43,6 +41,7 @@ class CartController extends Controller
         $producto = [ [
                 "prod_id" => $request->prod_id,
                 "cantidad" => $request->cantidad,
+                "precio" => Producto::find($request->prod_id)->precio,
                 "nombre_prod" => Producto::find($request->prod_id)->nombre
              ]
         ];
@@ -50,7 +49,7 @@ class CartController extends Controller
             
             $aux[] = $producto;
             //primer producto
-            session(['cart' =>  $producto]);
+            session(['cart' =>  $aux]);
         }else{
             //extraer los datos del carrito de la variable de session
             $aux = session('cart');
@@ -110,6 +109,7 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        session()
+        session()->forget('cart');
+        return redirect('cart');
     }
 }

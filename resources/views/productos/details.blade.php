@@ -17,7 +17,6 @@
                 <li><strong>Marca: </strong>{{$producto->marca->nombre}}</li>
                 <li><strong>Descripcion: </strong>{{$producto->desc}}</li>
                 <li><strong>Precio: </strong>{{$producto->precio}}</li>
-                <li><strong>Categoria: </strong>{{$producto->categoria->nombre}}</li>
             </ul>
         </div>
     </div>

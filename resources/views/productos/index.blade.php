@@ -30,7 +30,7 @@
         </div>
         <div class="card-content grey lighten-4">
             <div id="{{ $producto->id }}">{{ $producto->nombre}}</div>
-            <div id="{{ $producto->id }}1">{{ $producto->descripcion }}</div>
+            <div id="{{ $producto->id }}1">{{ $producto->desc }}</div>
             <div id="{{ $producto->id }}2">{{ $producto->precio }}</div>
             
         </div>
